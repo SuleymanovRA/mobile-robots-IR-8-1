@@ -17,11 +17,11 @@ void setup()
 void loop() {
   // Если пришли данные. 
   if (irrecv.decode(&results)) {
-    // Послать полученные данные на ПК в 16-ом представлении.
-    Serial.println(results.value, HEX);
+    unsigned long val = results.value;
     //Готов к приему.
     irrecv.resume(); 
+    // Послать полученные данные на ПК в 16-ом представлении.
+    Serial.println(val, HEX);
   }
-  delay(100);
+//  delay(100);
 }
-
